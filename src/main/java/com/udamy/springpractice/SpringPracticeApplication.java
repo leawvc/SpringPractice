@@ -9,10 +9,11 @@ public class SpringPracticeApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringPracticeApplication.class, args);
 
-//        var marioGame = new MarioGame();
-        var superContraGame = new SuperContraGame();
-//        var gameRunner = new GameRunner(marioGame);
-        var gameRunner = new GameRunner(superContraGame);
+
+//        var game = new MarioGame();
+        var game = new PacmanGame();
+//        var game = new SuperContraGame();
+        var gameRunner = new GameRunner(game);
         gameRunner.run();
     }
 
