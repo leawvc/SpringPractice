@@ -8,9 +8,8 @@ import org.springframework.context.annotation.Configuration;
  * @param name : 이름
  * @param age : 나이
  */
-record Person(String name, int age){
+record Person(String name, int age, Address address ){
 }
-
 record Address(String firstLine, String city){
 }
 
@@ -20,6 +19,7 @@ record Address(String firstLine, String city){
  */
 @Configuration
 public class HelloWorldConfiguration {
+    //Bean의 메서드  이름을 바꾸려면 Bean에 속성을 추가해주면 된다
     @Bean
     public String name(){
         return "Ranga";
@@ -28,12 +28,31 @@ public class HelloWorldConfiguration {
     public int age(){
         return 15;
     }
+
+    /**
+     * @Bean 을 활용하는 3가지 방법
+     * 1. 주소를 추가한다.
+     * 2. 메서드를 호출한다.
+     * 3. 매개변수를 활용한다.
+     */
     @Bean
     public Person person(){
-        return new Person("Ravi", 20);
+        return new Person("Ravi", 20, new Address("Main street", "Utrecht"));
     }
     @Bean
+    public Person person2MethodCall(){
+        return new Person(name() , age(), address());
+    }
+    @Bean
+    public Person person3Parameters(String name, int age, Address address3){
+        return new Person(name, age, address3);
+    }
+    @Bean(name = "address2")
     public Address address(){
         return new Address("Baker Street", "London");
+    }
+    @Bean(name = "address3")
+    public Address address3(){
+        return new Address("Motinagar", "Hyderabad");
     }
 }
