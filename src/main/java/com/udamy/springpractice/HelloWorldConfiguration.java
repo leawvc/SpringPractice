@@ -1,7 +1,9 @@
 package com.udamy.springpractice;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 /**
  * record : JDK16이상에서부터 지원하며 Setter, Getter, 생성자를 생략시켜준다.
@@ -47,11 +49,27 @@ public class HelloWorldConfiguration {
     public Person person3Parameters(String name, int age, Address address3){
         return new Person(name, age, address3);
     }
+    @Bean
+    @Primary
+    public Person person4Parameters(String name, int age, Address address){
+        return new Person(name, age, address);
+    }
+    @Bean
+    public Person person5Qualifier(String name, int age, @Qualifier("address3qualifier") Address address){
+        return new Person(name, age, address);
+    }
     @Bean(name = "address2")
+    @Primary
     public Address address(){
         return new Address("Baker Street", "London");
     }
+
+    /**
+     * @Primary : 한 개의 생성자에서 여러 개의 빈이 나열 될 경우 기본 빈을 설정해준다. 사용할 메서드에도 명시하여 기본 빈을 주입시켜줘야 한다.
+     * @Qualifier : 기본 빈을 사용하지 않고 다른 빈을 사용시에 사용
+     */
     @Bean(name = "address3")
+    @Qualifier("address3qualifier")
     public Address address3(){
         return new Address("Motinagar", "Hyderabad");
     }

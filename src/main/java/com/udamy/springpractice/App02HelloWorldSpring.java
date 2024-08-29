@@ -3,6 +3,9 @@ package com.udamy.springpractice;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class App02HelloWorldSpring {
     public static void main(String[] args) {
         //Spring Context 실행하는 단계 - AnnotationConfig
@@ -16,6 +19,12 @@ public class App02HelloWorldSpring {
         System.out.println(context.getBean("person2MethodCall"));
         System.out.println(context.getBean("person3Parameters"));
         System.out.println(context.getBean("address2"));
-//        System.out.println(context.getBean(Address.class));
+        System.out.println(context.getBean(Address.class));
+        System.out.println(context.getBean(Person.class));
+
+        System.out.println(context.getBean("person5Qualifier"));
+
+        //        Arrays.stream(context.getBeanDefinitionNames())
+        //                .forEach(System.out::println);
     }
 }
