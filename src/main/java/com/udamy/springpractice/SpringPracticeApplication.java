@@ -1,5 +1,7 @@
 package com.udamy.springpractice;
 
+import com.udamy.springpractice.game.GameRunner;
+import com.udamy.springpractice.game.PacmanGame;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

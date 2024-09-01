@@ -1,6 +1,4 @@
-package com.udamy.springpractice;
-
-import com.udamy.springpractice.GamingConsole;
+package com.udamy.springpractice.game;
 
 public class PacmanGame implements GamingConsole {
 

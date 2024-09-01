@@ -1,4 +1,4 @@
-package com.udamy.springpractice;
+package com.udamy.springpractice.game;
 
 public class MarioGame implements GamingConsole{
     public void up(){

@@ -1,4 +1,4 @@
-package com.udamy.springpractice;
+package com.udamy.springpractice.game;
 
 public class SuperContraGame implements GamingConsole{
     public void up(){
